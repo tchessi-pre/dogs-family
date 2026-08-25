@@ -2,14 +2,49 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+/* ---- Dog's Family brand palette ---------------------------------- */
+@theme {
+  --color-plum-50: #f7f1f5;
+  --color-plum-100: #efe1eb;
+  --color-plum-200: #dcbfd2;
+  --color-plum-300: #c294b3;
+  --color-plum-400: #a3648f;
+  --color-plum-500: #7f4270;
+  --color-plum-600: #602c56;
+  --color-plum-700: #482242;
+  --color-plum-800: #391a34;
+  --color-plum-900: #2b1327;
+  --color-plum-950: #1c0c1a;
+
+  --color-peach-50: #fef6ef;
+  --color-peach-100: #fdead9;
+  --color-peach-200: #fad2ac;
+  --color-peach-300: #f6b47b;
+  --color-peach-400: #f0985a;
+  --color-peach-500: #e8935f;
+  --color-peach-600: #cc702f;
+  --color-peach-700: #a85826;
+
+  --color-rose-50: #fdf3f6;
+  --color-rose-100: #fbe3ea;
+  --color-rose-200: #f4bfd1;
+  --color-rose-300: #ea97b3;
+  --color-rose-400: #df7a9b;
+  --color-rose-500: #c85c80;
+  --color-rose-600: #a34364;
+
+  --color-cream: #fdf3f6;
+  --color-cream-100: #fdf3f6;
+
+  --font-display: var(--font-display);
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -18,11 +53,6 @@
   --color-sidebar-primary: var(--sidebar-primary);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
@@ -45,76 +75,36 @@
   --radius-xl: calc(var(--radius) * 1.4);
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --background: var(--color-cream);
+  --foreground: var(--color-plum-900);
+  --card: #ffffff;
+  --card-foreground: var(--color-plum-900);
+  --popover: #ffffff;
+  --popover-foreground: var(--color-plum-900);
+  --primary: var(--color-plum-900);
+  --primary-foreground: var(--color-cream);
+  --secondary: var(--color-cream-100);
+  --secondary-foreground: var(--color-plum-900);
+  --muted: var(--color-cream-100);
+  --muted-foreground: var(--color-plum-500);
+  --accent: var(--color-peach-100);
+  --accent-foreground: var(--color-peach-700);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-}
-
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --border: var(--color-plum-200);
+  --input: var(--color-plum-200);
+  --ring: var(--color-plum-400);
+  --radius: 0.9rem;
+  --sidebar: var(--color-cream);
+  --sidebar-foreground: var(--color-plum-900);
+  --sidebar-primary: var(--color-plum-900);
+  --sidebar-primary-foreground: var(--color-cream);
+  --sidebar-accent: var(--color-cream-100);
+  --sidebar-accent-foreground: var(--color-plum-900);
+  --sidebar-border: var(--color-plum-200);
+  --sidebar-ring: var(--color-plum-400);
 }
 
 @layer base {
@@ -126,5 +116,40 @@
   }
   html {
     @apply font-sans;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+  }
+}
+
+/* ---- Reusable brand utilities ------------------------------------ */
+@layer components {
+  /* Glassmorphism navbar */
+  .glass {
+    @apply bg-cream/70 backdrop-blur-md;
+  }
+
+  /* Hover shine sweep, used on filled CTA buttons */
+  .btn-shine {
+    @apply relative overflow-hidden;
+  }
+  .btn-shine::after {
+    content: "";
+    @apply absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 ease-out;
+  }
+  .btn-shine:hover::after {
+    @apply translate-x-full;
+  }
+
+  /* Faint tiled paw-print texture, used as a section watermark */
+  .bg-paw-pattern {
+    background-image: radial-gradient(
+      var(--color-plum-900) 1px,
+      transparent 1px
+    );
+    background-size: 22px 22px;
   }
 }
