@@ -16,14 +16,14 @@ const fadeUp = {
 
 export function Hero() {
   return (
-    <section id="accueil" className="relative overflow-hidden min-h-[90vh]">
+    <section id="accueil" className="relative overflow-hidden sm:min-h-[90vh]">
       <Image
         src={HERO_BG}
         alt="Femme marchant avec deux chiens sur une plage au coucher de soleil"
         fill
         priority
         sizes="100vw"
-        className="object-cover"
+        className="object-cover object-[62%_center] sm:object-center"
         quality={90}
       />
 
@@ -49,7 +49,7 @@ export function Hero() {
         className="absolute inset-0 bg-linear-to-r from-plum-950/70 via-plum-900/30 to-transparent"
       />
 
-      <div className="relative mx-auto flex max-w-7xl items-center px-6 pb-28 pt-28 sm:pb-40 sm:pt-32 lg:px-8">
+      <div className="relative mx-auto flex max-w-7xl items-center px-6 pb-10 pt-24 sm:pb-40 sm:pt-32 lg:px-8">
         <motion.div
           initial="hidden"
           animate="show"
@@ -68,7 +68,7 @@ export function Hero() {
           <motion.h1
             variants={fadeUp}
             transition={{ duration: 0.5 }}
-            className="mt-5 font-display text-4xl font-semibold leading-[1.1] text-cream sm:text-5xl lg:text-[3.6rem]"
+            className="mt-3 font-display text-3xl font-semibold leading-[1.1] text-cream sm:mt-5 sm:text-5xl lg:text-[3.6rem]"
           >
             Une relation unique,
             <br />
@@ -94,7 +94,7 @@ export function Hero() {
           <motion.p
             variants={fadeUp}
             transition={{ duration: 0.5 }}
-            className="mt-6 text-base leading-relaxed text-cream/85 sm:text-lg"
+            className="mt-3 text-base leading-relaxed text-cream/85 sm:mt-6 sm:text-lg"
           >
             Éducatrice canine passionnée à Châteauneuf-les-Martigues et alentour,
             j&apos;accompagne votre chien vers une relation
@@ -104,7 +104,7 @@ export function Hero() {
           <motion.div
             variants={fadeUp}
             transition={{ duration: 0.5 }}
-            className="mt-9 flex flex-col gap-3.5 sm:flex-row"
+            className="mt-6 flex flex-col gap-3.5 sm:mt-9 sm:flex-row"
           >
             <a
               href="#services"

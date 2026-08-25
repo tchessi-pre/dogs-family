@@ -23,7 +23,7 @@ export function CtaBanner() {
             alt="Paysage coucher de soleil sur la montagne, ambiance douce"
             fill
             sizes="(min-width: 1024px) 80vw, 90vw"
-            className="object-cover"
+            className="object-cover object-[70%_center] sm:object-center"
             quality={90}
           />
         </div>

@@ -18,7 +18,7 @@ export function ServicesHero() {
         fill
         priority
         sizes="100vw"
-        className="object-cover"
+        className="object-cover object-[70%_center] sm:object-center"
         quality={90}
       />
 
@@ -27,7 +27,7 @@ export function ServicesHero() {
         className="absolute inset-0 bg-linear-to-b from-plum-950/75 via-plum-900/55 to-plum-950/80"
       />
 
-      <div className="relative mx-auto flex max-w-7xl flex-col items-center px-6 pb-24 pt-32 text-center sm:pb-32 sm:pt-40 lg:px-8">
+      <div className="relative mx-auto flex max-w-7xl flex-col items-center px-6 pb-10 pt-20 text-center sm:pb-32 sm:pt-40 lg:px-8">
         <motion.div
           initial="hidden"
           animate="show"
@@ -46,7 +46,7 @@ export function ServicesHero() {
           <motion.h1
             variants={fadeUp}
             transition={{ duration: 0.5 }}
-            className="mt-5 font-display text-4xl font-semibold leading-[1.1] text-cream sm:text-5xl"
+            className="mt-3 font-display text-3xl font-semibold leading-[1.1] text-cream sm:mt-5 sm:text-5xl"
           >
             Un accompagnement
             <br />
@@ -56,7 +56,7 @@ export function ServicesHero() {
           <motion.p
             variants={fadeUp}
             transition={{ duration: 0.5 }}
-            className="mt-6 text-base leading-relaxed text-cream/85 sm:text-lg"
+            className="mt-3 text-base leading-relaxed text-cream/85 sm:mt-6 sm:text-lg"
           >
             Chaque chien est unique, chaque humain aussi. Découvrez les
             prestations proposées pour répondre à vos besoins.
