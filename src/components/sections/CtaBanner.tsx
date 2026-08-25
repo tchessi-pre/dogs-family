@@ -62,7 +62,7 @@ export function CtaBanner() {
         </div>
 
         <a
-          href="#contact"
+          href="/contact"
           className={cn(
             buttonVariants({ variant: "default" }),
             "btn-shine relative z-10 h-12 shrink-0 gap-2 rounded-full bg-cream px-7 text-base text-plum-900 hover:bg-cream/90",

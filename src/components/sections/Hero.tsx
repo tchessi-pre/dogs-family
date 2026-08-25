@@ -97,7 +97,7 @@ export function Hero() {
             className="mt-6 text-base leading-relaxed text-cream/85 sm:text-lg"
           >
             Éducatrice canine passionnée à Châteauneuf-les-Martigues et alentour,
-            j&apos;accompagne vous et votre chien vers une relation
+            j&apos;accompagne votre chien vers une relation
             harmonieuse basée sur la confiance et le respect.
           </motion.p>
 
@@ -117,7 +117,7 @@ export function Hero() {
               <ArrowRight className="size-4" strokeWidth={1.75} />
             </a>
             <a
-              href="#contact"
+              href="/contact"
               className={cn(
                 buttonVariants({ variant: "outline" }),
                 "h-12 rounded-full border-cream/40 bg-transparent px-6 text-base text-cream hover:bg-cream/10 hover:text-cream",
@@ -137,7 +137,7 @@ export function Hero() {
         >
           <path d="M0 32 C320 88 560 16 880 32 C1160 48 1320 12 1440 32 L1440 96 L0 96 Z" />
         </svg>
-        <span className="absolute left-1/2 top-8 flex size-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-4 border-plum-400 bg-plum-100 shadow-md sm:size-16">
+        <span className="absolute left-1/2 top-8 flex size-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-4 border-plum-200 bg-plum-100 shadow-md sm:size-16">
           <PawPrint className="size-8 text-plum-600 sm:size-9"
             fill="currentColor"
             stroke="none" />

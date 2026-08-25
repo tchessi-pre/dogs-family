@@ -152,4 +152,15 @@
     );
     background-size: 22px 22px;
   }
+
+  /* Gentle breathing pulse on the loader logo */
+  @keyframes loader-pulse {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.06);
+    }
+  }
 }

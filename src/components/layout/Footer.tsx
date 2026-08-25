@@ -123,10 +123,16 @@ export function Footer() {
             &copy; {currentYear} {BRAND.name}. Tous droits réservés.
           </p>
           <div className="flex items-center gap-6">
-            <a href="#" className="transition-colors hover:text-peach-300">
+            <a
+              href="/mentions-legales"
+              className="transition-colors hover:text-peach-300"
+            >
               Mentions légales
             </a>
-            <a href="#" className="transition-colors hover:text-peach-300">
+            <a
+              href="/politique-de-confidentialite"
+              className="transition-colors hover:text-peach-300"
+            >
               Politique de confidentialité
             </a>
           </div>

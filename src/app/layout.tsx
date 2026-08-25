@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 
+import { PageLoader } from "@/components/layout/PageLoader";
+
 const cormorant = Cormorant_Garamond({
   variable: "--font-display",
   subsets: ["latin"],
@@ -27,6 +29,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${cormorant.variable} ${inter.variable} scroll-smooth`}
     >
       <body className="min-h-screen bg-cream font-sans text-plum-900 antialiased">
+        <PageLoader />
         {children}
       </body>
     </html>

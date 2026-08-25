@@ -106,7 +106,7 @@ export function About() {
           </div>
 
           <a
-            href="#contact"
+            href="/a-propos"
             className={cn(
               buttonVariants({ variant: "default" }),
               "btn-shine mt-8 h-12 gap-2 rounded-full bg-plum-900 px-6 text-base hover:bg-plum-800",

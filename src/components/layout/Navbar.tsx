@@ -16,7 +16,7 @@ import {
   SheetClose,
 } from "@/components/ui/sheet";
 
-const HASH_SECTION_IDS = ["accueil", "apropos", "services", "temoignages", "contact"] as const;
+const HASH_SECTION_IDS = ["accueil", "temoignages"] as const;
 type SectionId = (typeof HASH_SECTION_IDS)[number];
 
 function hrefToKey(href: string): string {
@@ -179,8 +179,8 @@ export function Navbar() {
 
         <div className="flex items-center gap-2">
           <a
-            href="#contact"
-            onClick={handleNavClick("#contact")}
+            href="/contact"
+            onClick={handleNavClick("/contact")}
             className={cn(
               buttonVariants({ variant: "default" }),
               "btn-shine hidden h-11 gap-2 rounded-full bg-plum-900 px-5 text-[0.95rem] text-cream transition-all duration-200 hover:bg-plum-800 hover:shadow-lg hover:shadow-plum-900/20 active:scale-[0.98] sm:inline-flex",
@@ -253,8 +253,8 @@ export function Navbar() {
                   nativeButton={false}
                   render={
                     <a
-                      href="#contact"
-                      onClick={handleNavClick("#contact")}
+                      href="/contact"
+                      onClick={handleNavClick("/contact")}
                       className={cn(
                         buttonVariants({ variant: "default" }),
                         "h-12 w-full gap-2 rounded-full bg-plum-900 text-[0.95rem] text-cream transition-all duration-200 hover:bg-plum-800 hover:shadow-lg hover:shadow-plum-900/20 active:scale-[0.98]",

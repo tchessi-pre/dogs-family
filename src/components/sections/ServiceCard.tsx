@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Dog, HeartHandshake, Footprints, Home, ArrowRight } from "lucide-react";
+import { Dog, HeartHandshake, Footprints, Home, Compass, ArrowRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import type { Service } from "@/lib/data";
@@ -12,6 +12,7 @@ const ICONS = {
   "heart-handshake": HeartHandshake,
   footprints: Footprints,
   home: Home,
+  compass: Compass,
 } as const;
 
 const ACCENTS = {
@@ -42,7 +43,7 @@ export function ServiceCard({
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
     >
-      <Card className="h-full gap-4 rounded-3xl bg-white ring-plum-900/5 p-7 shadow-sm shadow-plum-900/5 transition-shadow hover:shadow-lg hover:shadow-plum-900/10">
+      <Card className="h-full gap-4 rounded-3xl bg-white  p-7  transition-shadow hover:shadow-lg hover:shadow-plum-900/10">
         <span
           className={cn(
             "flex size-14 items-center justify-center rounded-full",
