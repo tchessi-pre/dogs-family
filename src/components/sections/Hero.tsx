@@ -7,7 +7,7 @@ import { ArrowRight, PawPrint } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 
-const HERO_BG = "/header-bg.jpeg";
+const HERO_BG = "/header-bg.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
