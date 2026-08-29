@@ -29,11 +29,13 @@ export function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const initialActive =
-    typeof window === "undefined" || pathname !== "/"
-      ? pathname
-      : (window.location.hash.replace("#", "") || "accueil");
+  const initialActive = pathname !== "/" ? pathname : "accueil";
   const [activeKey, setActiveKey] = useState<string>(initialActive);
+  const [hydrated, setHydrated] = useState(false);
+
+  useEffect(function markHydrated() {
+    setHydrated(true);
+  }, []);
 
   useEffect(function trackScrollShadow() {
     function handleScroll() {
@@ -48,11 +50,10 @@ export function Navbar() {
 
   useEffect(
     function syncActiveFromHash() {
+      if (!hydrated) return;
       if (pathname !== "/") {
-        const id = window.setTimeout(() => setActiveKey(pathname), 0);
-        return function cleanupTimeout() {
-          window.clearTimeout(id);
-        };
+        setActiveKey(pathname);
+        return;
       }
       function onHashChange() {
         const hash = window.location.hash.replace("#", "");
@@ -68,12 +69,12 @@ export function Navbar() {
         window.removeEventListener("hashchange", onHashChange);
       };
     },
-    [pathname],
+    [pathname, hydrated],
   );
 
   useEffect(
     function scrollSpySections() {
-      if (pathname !== "/") return;
+      if (!hydrated || pathname !== "/") return;
       if (typeof IntersectionObserver === "undefined") return;
 
       const elements = HASH_SECTION_IDS.map((id) => document.getElementById(id)).filter(
