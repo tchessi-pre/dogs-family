@@ -31,7 +31,7 @@ export default function MentionsLegalesPage() {
               titre indépendant, basée à {BRAND.city} ({BRAND.postalCode}).
             </p>
             <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-plum-700">
-              <li>Numéro SIRET : à compléter</li>
+              <li>Numéro SIRET : 93262087500017</li>
               <li>
                 Adresse : {BRAND.city} ({BRAND.postalCode}), France
               </li>

@@ -34,7 +34,10 @@ export function Navbar() {
   const [hydrated, setHydrated] = useState(false);
 
   useEffect(function markHydrated() {
-    setHydrated(true);
+    const id = window.setTimeout(() => setHydrated(true), 0);
+    return function cleanupTimeout() {
+      window.clearTimeout(id);
+    };
   }, []);
 
   useEffect(function trackScrollShadow() {
@@ -52,8 +55,10 @@ export function Navbar() {
     function syncActiveFromHash() {
       if (!hydrated) return;
       if (pathname !== "/") {
-        setActiveKey(pathname);
-        return;
+        const id = window.setTimeout(() => setActiveKey(pathname), 0);
+        return function cleanupTimeout() {
+          window.clearTimeout(id);
+        };
       }
       function onHashChange() {
         const hash = window.location.hash.replace("#", "");
@@ -96,7 +101,9 @@ export function Navbar() {
           for (const [id, ratio] of visible) {
             if (!best || ratio > best.ratio) best = { id, ratio };
           }
-          if (best) setActiveKey(best.id);
+          if (best) {
+            window.setTimeout(() => setActiveKey(best!.id), 0);
+          }
         },
         {
           rootMargin: "-40% 0px -50% 0px",
@@ -109,7 +116,7 @@ export function Navbar() {
         observer.disconnect();
       };
     },
-    [pathname],
+    [pathname, hydrated],
   );
 
   const handleNavClick = useCallback(
