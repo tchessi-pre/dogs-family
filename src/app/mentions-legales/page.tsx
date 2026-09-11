@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { LegalHero } from "@/components/sections/LegalHero";
+import { PageHero } from "@/components/sections/PageHero";
 import { BRAND } from "@/lib/data";
 
 export const metadata = {
@@ -14,7 +14,7 @@ export default function MentionsLegalesPage() {
     <>
       <Navbar />
       <main>
-        <LegalHero
+        <PageHero
           eyebrow="Informations légales"
           title="Mentions légales"
           description="Conformément aux articles 6-III et 19 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique, voici les informations relatives à l'éditeur et à l'hébergeur de ce site."

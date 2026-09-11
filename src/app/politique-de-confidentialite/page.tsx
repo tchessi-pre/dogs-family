@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { LegalHero } from "@/components/sections/LegalHero";
+import { PageHero } from "@/components/sections/PageHero";
 import { BRAND } from "@/lib/data";
 
 export const metadata = {
@@ -14,7 +14,7 @@ export default function PolitiqueDeConfidentialitePage() {
     <>
       <Navbar />
       <main>
-        <LegalHero
+        <PageHero
           eyebrow="Vos données"
           title="Politique de confidentialité"
           description="Cette page explique quelles données sont collectées sur ce site, pourquoi, et comment vous pouvez exercer vos droits."

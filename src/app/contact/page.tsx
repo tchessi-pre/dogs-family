@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { ContactHero } from "@/components/sections/ContactHero";
+import { PageHero } from "@/components/sections/PageHero";
 import { Contact } from "@/components/sections/Contact";
 
 export const metadata = {
@@ -14,7 +14,13 @@ export default function ContactPage() {
     <>
       <Navbar />
       <main>
-        <ContactHero />
+        <PageHero
+          eyebrow="Contact"
+          title="Parlons de votre"
+          titleItalic="compagnon à quatre pattes"
+          description="Une question, une envie de premier échange ? Écrivez-moi ou appelez-moi, je vous réponds avec plaisir."
+          image={{ src: "/contact-bg2.jpeg", alt: "Chien attentif regardant son humain, complicité et confiance" }}
+        />
         <Contact />
       </main>
       <Footer />

@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { ServicesHero } from "@/components/sections/ServicesHero";
+import { PageHero } from "@/components/sections/PageHero";
 import { ServicesDetail } from "@/components/sections/ServicesDetail";
 import { Pricing } from "@/components/sections/Pricing";
 
@@ -15,7 +15,13 @@ export default function ServicesPage() {
     <>
       <Navbar />
       <main>
-        <ServicesHero />
+        <PageHero
+          eyebrow="Services"
+          title="Un accompagnement"
+          titleItalic="pensé pour chaque duo"
+          description="Chaque chien est unique, chaque humain aussi. Découvrez les prestations proposées pour répondre à vos besoins."
+          image={{ src: "/contact-bg.png", alt: "Paysage apaisant au coucher de soleil, ambiance douce", position: "70% center" }}
+        />
         <ServicesDetail />
         <Pricing />
       </main>
