@@ -15,7 +15,7 @@ export function CtaBanner() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.6 }}
-        className="relative mx-auto flex max-w-7xl flex-col items-center gap-8 overflow-hidden px-6 pt-28 pb-24 text-center sm:px-12 sm:pt-36 sm:pb-32 lg:flex-row lg:items-center lg:justify-between lg:text-left"
+        className="relative mx-auto flex max-w-full flex-col items-center gap-8 overflow-hidden px-6 pt-28 pb-24 text-center sm:px-12 sm:pt-36 sm:pb-32 lg:flex-row lg:items-center lg:justify-between lg:text-left"  
       >
         <div aria-hidden="true" className="absolute inset-0">
           <Image
@@ -32,7 +32,7 @@ export function CtaBanner() {
           <svg
             viewBox="0 0 1440 120"
             preserveAspectRatio="none"
-            className="h-20 w-full fill-cream sm:h-28 lg:h-30"
+            className="h-20 w-full fill-plum-100 sm:h-28 lg:h-30"
           >
             <path d="M0 0 L0 84 C320 108 640 24 960 56 C1200 78 1360 32 1440 48 L1440 0 Z" />
           </svg>
