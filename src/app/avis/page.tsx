@@ -1,20 +1,61 @@
+import type { Metadata } from "next";
+
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { AvisHero } from "@/components/sections/AvisHero";
 import { TestimonialCard } from "@/components/sections/TestimonialCard";
 import { CtaBanner } from "@/components/sections/CtaBanner";
-import { TESTIMONIALS } from "@/lib/data";
+import { TESTIMONIALS, GOOGLE_REVIEWS_META, BRAND } from "@/lib/data";
 import { GoogleMapsLink } from "@/components/ui/google-maps-link";
+import { JsonLd } from "@/components/seo/JsonLd";
 
-export const metadata = {
-  title: "Avis clients — Dog's Family",
+export const metadata: Metadata = {
+  title: "Avis clients · 25 avis 5 étoiles",
   description:
-    "Lisez les 25 avis Google (tous 5 étoiles) des propriétaires accompagnés par Dog's Family : éducation canine, réactivité, maintrailing et balades collectives.",
+    "25 avis Google tous 5 étoiles pour Dog's Family. Lisez les témoignages de propriétaires accompagnés en éducation canine, rééducation comportementale et maintrailing à Châteauneuf-les-Martigues.",
+  alternates: {
+    canonical: "/avis",
+  },
+  openGraph: {
+    title: "Avis clients · 25 avis 5 étoiles | Dog's Family",
+    description:
+      "25 avis Google tous 5 étoiles. Témoignages de propriétaires accompagnés en éducation canine et maintrailing à Châteauneuf-les-Martigues.",
+    url: "/avis",
+  },
+};
+
+const reviewsSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": BRAND.siteUrl,
+  name: BRAND.name,
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: String(GOOGLE_REVIEWS_META.rating),
+    reviewCount: String(GOOGLE_REVIEWS_META.total),
+    bestRating: "5",
+    worstRating: "1",
+  },
+  review: TESTIMONIALS.map((t) => ({
+    "@type": "Review",
+    author: {
+      "@type": "Person",
+      name: t.author,
+    },
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: String(t.rating),
+      bestRating: "5",
+    },
+    reviewBody: t.quote,
+    datePublished: t.visitedMonth ?? t.date,
+  })),
 };
 
 export default function AvisPage() {
   return (
     <>
+      <JsonLd data={reviewsSchema} />
       <Navbar />
       <main>
         <AvisHero />

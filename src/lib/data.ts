@@ -4,6 +4,8 @@ export const BRAND = {
   educator: "Léa",
   city: "Châteauneuf-les-Martigues",
   postalCode: "13220",
+  // Mettre à jour avec le vrai domaine avant le déploiement
+  siteUrl: "https://dogs-family.fr",
   phone: "07 78 54 51 37",
   phoneHref: "tel:+33778545137",
   email: "dogsfamily13@gmail.com",

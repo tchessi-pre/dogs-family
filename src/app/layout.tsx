@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 
 import { PageLoader } from "@/components/layout/PageLoader";
+import { BRAND } from "@/lib/data";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-display",
@@ -17,9 +18,18 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Dog's Family | Éducation canine bienveillante",
+  metadataBase: new URL(BRAND.siteUrl),
+  title: {
+    default: "Dog's Family | Éducatrice canine à Châteauneuf-les-Martigues",
+    template: "%s | Dog's Family",
+  },
   description:
-    "Éducatrice canine à Châteauneuf-les-Martigues et alentour. Éducation de base, rééducation comportementale, balades éducatives et conseils à domicile pour une relation harmonieuse avec votre chien.",
+    "Léa, éducatrice canine certifiée à Châteauneuf-les-Martigues et alentour. Éducation de base, rééducation comportementale, balades éducatives et maintrailing. 25 avis 5 étoiles.",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
   icons: {
     icon: [
       { rel: "icon", url: "/logo.jpg", type: "image/jpeg", sizes: "any" },
@@ -28,24 +38,20 @@ export const metadata: Metadata = {
     shortcut: ["/logo.jpg"],
   },
   openGraph: {
-    title: "Dog's Family | Éducation canine bienveillante",
-    description:
-      "Éducatrice canine à Châteauneuf-les-Martigues et alentour. Éducation de base, rééducation comportementale, balades éducatives et conseils à domicile.",
+    siteName: "Dog's Family",
+    locale: "fr_FR",
     type: "website",
     images: [
       {
         url: "/logo.jpg",
         width: 1200,
         height: 1200,
-        alt: "Logo Dog's Family",
+        alt: "Dog's Family — Éducation canine bienveillante à Châteauneuf-les-Martigues",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dog's Family | Éducation canine bienveillante",
-    description:
-      "Éducatrice canine à Châteauneuf-les-Martigues et alentour. Éducation de base, rééducation comportementale, balades éducatives et conseils à domicile.",
     images: ["/logo.jpg"],
   },
 };

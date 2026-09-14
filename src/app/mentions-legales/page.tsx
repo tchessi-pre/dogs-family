@@ -7,6 +7,7 @@ export const metadata = {
   title: "Mentions légales — Dog's Family",
   description:
     "Mentions légales du site Dog's Family, éducation canine à Châteauneuf-les-Martigues.",
+  robots: { index: false, follow: false },
 };
 
 export default function MentionsLegalesPage() {

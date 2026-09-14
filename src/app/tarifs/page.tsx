@@ -1,13 +1,24 @@
+import type { Metadata } from "next";
+
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Pricing } from "@/components/sections/Pricing";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { PageHero } from "@/components/sections/PageHero";
 
-export const metadata = {
-  title: "Tarifs — Dog's Family",
+export const metadata: Metadata = {
+  title: "Tarifs — Éducation canine & Maintrailing",
   description:
-    "Consultez les tarifs transparents des prestations d'éducation canine Dog's Family : bilans, séances individuelles, forfaits, maintrailing et balades éducatives.",
+    "Tarifs transparents : bilan à 30 €, séance individuelle à 50 €, forfaits de 5 à 15 séances. Maintrailing à partir de 25 €. Éducation canine à Châteauneuf-les-Martigues.",
+  alternates: {
+    canonical: "/tarifs",
+  },
+  openGraph: {
+    title: "Tarifs — Éducation canine & Maintrailing | Dog's Family",
+    description:
+      "Bilan à 30 €, séance individuelle à 50 €, forfaits de 5 à 15 séances. Maintrailing à partir de 25 €. Châteauneuf-les-Martigues.",
+    url: "/tarifs",
+  },
 };
 
 export default function TarifsPage() {

@@ -7,6 +7,7 @@ export const metadata = {
   title: "Politique de confidentialité — Dog's Family",
   description:
     "Politique de confidentialité du site Dog's Family : données collectées, utilisation et droits des utilisateurs.",
+  robots: { index: false, follow: false },
 };
 
 export default function PolitiqueDeConfidentialitePage() {

@@ -1,11 +1,22 @@
+import type { Metadata } from "next";
+
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Gallery } from "@/components/sections/Gallery";
 
-export const metadata = {
-  title: "Galeries photos — Dog's Family",
+export const metadata: Metadata = {
+  title: "Galerie photos",
   description:
-    "Découvrez les moments de complicité capturés lors des séances d'éducation canine, des balades éducatives et des instants partagés avec les chiens.",
+    "Photos des séances d'éducation canine, balades éducatives et moments de complicité capturés avec les chiens accompagnés par Dog's Family à Châteauneuf-les-Martigues.",
+  alternates: {
+    canonical: "/galeries",
+  },
+  openGraph: {
+    title: "Galerie photos | Dog's Family",
+    description:
+      "Séances d'éducation canine, balades et moments de complicité avec les chiens accompagnés par Dog's Family.",
+    url: "/galeries",
+  },
 };
 
 export default function GalleryPage() {
