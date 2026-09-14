@@ -46,7 +46,7 @@ export const metadata: Metadata = {
         url: "/logo.jpg",
         width: 1200,
         height: 1200,
-        alt: "Dog's Family — Éducation canine bienveillante à Châteauneuf-les-Martigues",
+        alt: "Dog's Family - Éducatrice canine à Châteauneuf-les-Martigues",
       },
     ],
   },

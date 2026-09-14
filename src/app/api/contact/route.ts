@@ -1,12 +1,14 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const TO_EMAIL = "tchessipre@gmail.com";
 const FROM_EMAIL = "Dog's Family <onboarding@resend.dev>";
 
 export async function POST(request: Request) {
+  if (!process.env.RESEND_API_KEY) {
+    return NextResponse.json({ error: "Configuration manquante." }, { status: 500 });
+  }
+  const resend = new Resend(process.env.RESEND_API_KEY);
   let body: unknown;
   try {
     body = await request.json();

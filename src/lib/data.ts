@@ -1,6 +1,6 @@
 export const BRAND = {
   name: "Dog's Family",
-  tagline: "Éducation canine bienveillante",
+  tagline: "Éducatrice canine",
   educator: "Léa",
   city: "Châteauneuf-les-Martigues",
   postalCode: "13220",
