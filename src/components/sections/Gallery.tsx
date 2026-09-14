@@ -184,7 +184,7 @@ export function Gallery() {
       {/* Decorative blobs */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-40 -top-40 size-[28rem] rounded-full bg-rose-100/60 blur-3xl"
+        className="pointer-events-none absolute -right-40 -top-40 size-112 rounded-full bg-rose-100/60 blur-3xl"
       />
       <div
         aria-hidden="true"
@@ -248,7 +248,7 @@ export function Gallery() {
                 {label}
                 <span
                   className={cn(
-                    "min-w-[1.25rem] rounded-full px-1.5 text-center text-[10px] font-bold leading-5 tabular-nums",
+                    "min-w-5 rounded-full px-1.5 text-center text-[10px] font-bold leading-5 tabular-nums",
                     isActive
                       ? "bg-plum-700 text-cream"
                       : "bg-plum-100 text-plum-600",

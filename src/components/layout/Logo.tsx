@@ -15,7 +15,7 @@ export function Logo({
 
   return (
     <Link
-      href="#accueil"
+      href="/"
       className={cn("flex items-center gap-3", className)}
       aria-label={`${BRAND.name} — retour à l'accueil`}
     >
