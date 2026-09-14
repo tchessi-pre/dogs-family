@@ -288,14 +288,15 @@ export function Gallery() {
                   width={image.width}
                   height={image.height}
                   sizes="(min-width: 1024px) 33vw, 50vw"
+                  loading={i < 6 ? "eager" : "lazy"}
                   className="block h-auto w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                 />
 
                 {/* Permanent soft bottom vignette */}
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-plum-950/35 to-transparent" />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-linear-to-t from-plum-950/35 to-transparent" />
 
                 {/* Hover overlay */}
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-plum-950/70 via-plum-950/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-plum-950/70 via-plum-950/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
                 {/* Category chip — slides down on hover */}
                 <span

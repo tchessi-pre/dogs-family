@@ -60,6 +60,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="fr"
+      data-scroll-behavior="smooth"
       className={`${cormorant.variable} ${inter.variable} scroll-smooth`}
     >
       <body className="min-h-screen bg-cream font-sans text-plum-900 antialiased">
