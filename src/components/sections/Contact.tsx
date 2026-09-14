@@ -45,11 +45,13 @@ type FormState = {
   message: string;
 };
 
+type Status = "idle" | "loading" | "success" | "error";
+
 const INITIAL_STATE: FormState = { name: "", email: "", phone: "", message: "" };
 
 export function Contact() {
   const [form, setForm] = useState<FormState>(INITIAL_STATE);
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
 
   function handleChange(field: keyof FormState) {
     return (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -57,24 +59,21 @@ export function Contact() {
     };
   }
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-
-    const subject = `Prise de contact — ${form.name || "site Dog's Family"}`;
-    const bodyLines = [
-      `Nom : ${form.name}`,
-      `Email : ${form.email}`,
-      form.phone ? `Téléphone : ${form.phone}` : null,
-      "",
-      form.message,
-    ].filter((line): line is string => line !== null);
-
-    const mailto = `mailto:${BRAND.email}?subject=${encodeURIComponent(
-      subject,
-    )}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
-
-    window.location.href = mailto;
-    setSent(true);
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error("send failed");
+      setStatus("success");
+      setForm(INITIAL_STATE);
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -252,20 +251,26 @@ export function Contact() {
 
               <button
                 type="submit"
+                disabled={status === "loading" || status === "success"}
                 className={cn(
                   buttonVariants({ variant: "default" }),
-                  "btn-shine h-12 w-full gap-2 rounded-full bg-plum-900 text-base text-cream hover:bg-plum-800",
+                  "btn-shine h-12 w-full gap-2 rounded-full bg-plum-900 text-base text-cream hover:bg-plum-800 disabled:opacity-60",
                 )}
               >
-                Envoyer le message
-                <Send className="size-4" strokeWidth={1.75} />
+                {status === "loading" ? "Envoi en cours…" : "Envoyer le message"}
+                {status !== "loading" && <Send className="size-4" strokeWidth={1.75} />}
               </button>
 
-              {sent && (
+              {status === "success" && (
                 <p className="flex items-center gap-2 text-sm font-medium text-plum-700">
                   <CheckCircle2 className="size-4 text-rose-500" strokeWidth={1.75} />
-                  Votre messagerie s&apos;est ouverte avec votre message
-                  pré-rempli.
+                  Message envoyé ! Je vous réponds dès que possible.
+                </p>
+              )}
+              {status === "error" && (
+                <p className="flex items-center gap-2 text-sm font-medium text-rose-600">
+                  <CheckCircle2 className="size-4" strokeWidth={1.75} />
+                  Une erreur s&apos;est produite. Réessayez ou écrivez-moi directement.
                 </p>
               )}
             </form>
