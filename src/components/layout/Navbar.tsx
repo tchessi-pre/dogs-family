@@ -131,7 +131,8 @@ export function Navbar() {
         }
         const el = document.getElementById(id);
         if (el) {
-          const y = el.getBoundingClientRect().top + window.scrollY - 76;
+          const navH = window.innerWidth >= 1024 ? 80 : 64;
+          const y = el.getBoundingClientRect().top + window.scrollY - navH;
           window.scrollTo({ top: y, behavior: "smooth" });
           if (typeof history !== "undefined") {
             history.replaceState(null, "", `#${id}`);
@@ -152,7 +153,7 @@ export function Navbar() {
           : "border-transparent bg-cream",
       )}
     >
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:h-20 lg:px-8">
         <Logo />
 
         <nav aria-label="Navigation principale" className="hidden items-center gap-1 lg:flex">
@@ -218,7 +219,7 @@ export function Navbar() {
                   <X className="size-5" strokeWidth={1.75} />
                 </Button>
               </SheetHeader>
-              <nav aria-label="Navigation mobile" className="flex flex-col gap-1 p-4">
+              <nav aria-label="Navigation mobile" className="flex min-h-0 flex-1 flex-col gap-1 overflow-y-auto p-4">
                 {NAV_LINKS.map((link) => {
                   const key = hrefToKey(link.href);
                   const isActive = activeKey === key;

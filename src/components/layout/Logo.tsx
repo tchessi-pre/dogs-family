@@ -38,7 +38,7 @@ export function Logo({
           unoptimized
         />
       </span>
-      <span className="flex flex-col leading-none">
+      <span className="flex flex-col gap-0.5 leading-none">
         <span className="font-display text-xl font-semibold tracking-tight">
           Dog&apos;s{" "}
           <span
@@ -49,6 +49,14 @@ export function Logo({
           >
             Family
           </span>
+        </span>
+        <span
+          className={cn(
+            "font-sans text-[0.65rem] font-medium uppercase tracking-widest",
+            isDark ? "text-peach-300/80" : "text-plum-600/70",
+          )}
+        >
+          Éducation Canine
         </span>
       </span>
     </Link>
