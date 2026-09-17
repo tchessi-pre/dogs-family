@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Dog, HeartHandshake, Footprints, Home, Compass, Check, ArrowRight } from "lucide-react";
+import { Dog, HeartHandshake, Footprints, Home, Compass, Check, ArrowRight, PawPrint } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { SERVICES } from "@/lib/data";
@@ -130,6 +130,25 @@ export function ServicesDetail() {
             );
           })}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mt-14 flex flex-col items-center gap-3 text-center"
+        >
+          <p className="text-sm text-plum-600">
+            Envie de connaître les tarifs pour ces prestations ?
+          </p>
+          <a
+            href="/tarifs"
+            className="inline-flex items-center gap-2 rounded-full bg-plum-900 px-6 py-3 text-sm font-medium text-cream transition-all duration-200 hover:bg-plum-800 hover:shadow-lg hover:shadow-plum-900/20 active:scale-[0.98]"
+          >
+            Voir les tarifs
+            <PawPrint className="size-4" strokeWidth={1.75} />
+          </a>
+        </motion.div>
       </div>
     </section>
   );
