@@ -26,7 +26,7 @@ export async function POST(request: Request) {
     from: FROM_EMAIL,
     to: TO_EMAIL,
     replyTo: email,
-    subject: `Nouveau message de ${name} — Dog's Family`,
+    subject: `Nouveau message de ${name} - Dog's Family`,
     html: `
       <div style="font-family:sans-serif;max-width:560px;margin:0 auto;color:#1a0a2e">
         <h2 style="font-size:20px;font-weight:600;margin-bottom:24px">

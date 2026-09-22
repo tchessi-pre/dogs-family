@@ -56,20 +56,20 @@ export function Hero() {
           <motion.span
             variants={fadeUp}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-plum-400"
+            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-plum-700 sm:text-plum-200"
           >
-            <span className="size-1.5 rounded-full bg-plum-400" />
+            <span className="size-1.5 rounded-full bg-plum-200" />
             Éducation canine bienveillante
           </motion.span>
 
           <motion.h1
             variants={fadeUp}
             transition={{ duration: 0.5 }}
-            className="mt-3 font-display text-3xl font-semibold leading-[1.1] text-cream sm:mt-5 sm:text-5xl lg:text-[3.6rem]"
+            className="mt-3 font-display text-3xl font-semibold text-shadow-accent leading-[1.1] text-cream sm:mt-5 sm:text-5xl lg:text-[3.6rem]"
           >
             Une relation unique,
             <br />
-            <span className="relative inline-block italic text-peach-600">
+            <span className="relative inline-block text-shadow-accent italic text-peach-300">
               une complicité durable.
               <svg
                 viewBox="0 0 320 18"
@@ -91,7 +91,7 @@ export function Hero() {
           <motion.p
             variants={fadeUp}
             transition={{ duration: 0.5 }}
-            className="mt-3 text-base leading-relaxed text-cream sm:mt-8 sm:text-lg"
+            className="mt-6 text-bold text-shadow-accent leading-relaxed text-cream sm:mt-8 sm:text-lg"
           >
             Éducatrice canine passionnée à Châteauneuf-les-Martigues et alentour,
             j&apos;accompagne votre chien vers une relation
@@ -117,7 +117,7 @@ export function Hero() {
               href="/contact"
               className={cn(
                 buttonVariants({ variant: "outline" }),
-                "h-12 rounded-full border-cream/40 bg-transparent px-6 text-base text-cream hover:bg-cream/10 hover:text-cream",
+                "h-12 rounded-full border-cream/70 bg-transparent px-6 text-base text-cream hover:bg-cream/10 hover:text-cream",
               )}
             >
               Me contacter

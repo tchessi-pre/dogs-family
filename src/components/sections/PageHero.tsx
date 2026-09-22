@@ -79,7 +79,7 @@ export function PageHero({
       )}
 
       {/* Content */}
-      <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center px-6 pb-28 pt-24 text-center sm:pb-36 sm:pt-40 lg:px-8">
+      <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center px-6 pb-28 pt-24 text-center sm:pb-36 sm:pt-20 lg:px-8">
         <motion.div
           initial="hidden"
           animate="show"
