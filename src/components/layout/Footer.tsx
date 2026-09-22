@@ -118,20 +118,20 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-cream/10 pt-8 text-xs text-cream/60 sm:flex-row">
+        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-cream/10 pt-8 text-xs text-peach-300 sm:flex-row">
           <p>
             &copy; {currentYear} {BRAND.name}. Tous droits réservés.
           </p>
           <div className="flex items-center gap-6">
             <a
               href="/mentions-legales"
-              className="transition-colors hover:text-peach-300"
+              className="transition-colors text-peach-300 hover:text-cream"
             >
               Mentions légales
             </a>
             <a
               href="/politique-de-confidentialite"
-              className="transition-colors hover:text-peach-300"
+              className="transition-colors text-peach-300 hover:text-cream"
             >
               Politique de confidentialité
             </a>

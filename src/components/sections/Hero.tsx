@@ -18,15 +18,22 @@ const fadeUp = {
 export function Hero() {
   return (
     <section id="accueil" className="relative overflow-hidden min-h-screen sm:min-h-[90vh]">
-      <Image
-        src={HERO_BG}
-        alt="Femme marchant avec deux chiens sur une plage au coucher de soleil"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-[50%_center] sm:object-center"
-        quality={90}
-      />
+      <motion.div
+        className="absolute inset-0"
+        initial={{ opacity: 0, scale: 1.05 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.6, ease: "easeOut" }}
+      >
+        <Image
+          src={HERO_BG}
+          alt="Femme marchant avec deux chiens sur une plage au coucher de soleil"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[50%_center] sm:object-center"
+          quality={90}
+        />
+      </motion.div>
 
       <svg
         aria-hidden="true"
@@ -50,7 +57,7 @@ export function Hero() {
         <motion.div
           initial="hidden"
           animate="show"
-          variants={{ show: { transition: { staggerChildren: 0.14 } } }}
+          variants={{ show: { transition: { delayChildren: 0.5, staggerChildren: 0.14 } } }}
           className="max-w-2xl"
         >
           <motion.span
@@ -77,12 +84,15 @@ export function Hero() {
                 aria-hidden="true"
                 className="absolute -bottom-2 left-0 h-3.5 w-full text-peach-400"
               >
-                <path
+                <motion.path
                   d="M2 12C60 2 120 2 160 9C200 16 260 16 318 6"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="4"
                   strokeLinecap="round"
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={{ pathLength: 1, opacity: 1 }}
+                  transition={{ duration: 0.7, delay: 1.4, ease: "easeInOut" }}
                 />
               </svg>
             </span>
@@ -117,7 +127,7 @@ export function Hero() {
               href="/contact"
               className={cn(
                 buttonVariants({ variant: "outline" }),
-                "h-12 rounded-full border-cream/70 bg-transparent px-6 text-base text-cream hover:bg-cream/10 hover:text-cream",
+                "h-12 rounded-full border-cream/70 bg-cream/20 px-6 text-base text-cream hover:bg-cream/10 hover:text-cream",
               )}
             >
               Me contacter
@@ -134,11 +144,16 @@ export function Hero() {
         >
           <path d="M0 32 C320 88 560 16 880 32 C1160 48 1320 12 1440 32 L1440 96 L0 96 Z" />
         </svg> */}
-        <span className="absolute left-1/2 top-10 flex size-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-4 border-plum-200 bg-plum-100 shadow-md sm:top-12 sm:size-16">
+        <motion.span
+          className="absolute left-1/2 top-10 flex size-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-4 border-plum-200 bg-plum-100 shadow-md sm:top-12 sm:size-16"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 1.2, ease: "easeOut" }}
+        >
           <PawPrint className="size-7 text-plum-600 sm:size-9"
             fill="currentColor"
             stroke="none" />
-        </span>
+        </motion.span>
       </div>
     </section>
   );

@@ -39,16 +39,13 @@ export function Logo({
         />
       </span>
       <span className="flex flex-col gap-0.5 leading-none">
-        <span className="font-display text-xl font-semibold tracking-tight">
-          Dog&apos;s{" "}
-          <span
-            className={cn(
-              "italic",
-              isDark ? "text-peach-300" : "text-plum-600",
-            )}
-          >
-            Family
-          </span>
+        <span
+          className={cn(
+            "font-corinthia text-2xl font-bold leading-none tracking-wide",
+            isDark ? "text-peach-200" : "text-plum-800",
+          )}
+        >
+          Dog&apos;s Family
         </span>
         <span
           className={cn(

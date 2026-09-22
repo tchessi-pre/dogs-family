@@ -39,6 +39,7 @@
   --color-cream-100: #fdf3f6;
 
   --font-display: var(--font-display);
+  --font-corinthia: var(--font-corinthia);
 }
 
 @custom-variant dark (&:is(.dark *));

@@ -157,123 +157,157 @@ export function Contact() {
           transition={{ duration: 0.6 }}
         >
           <Card className="gap-0 rounded-3xl bg-white p-7 ring-plum-900/5 shadow-sm shadow-plum-900/5 sm:p-9">
-            <span className="flex size-12 items-center justify-center rounded-full bg-peach-100 text-peach-700">
-              <PawPrint className="size-5" strokeWidth={1.75} />
-            </span>
-            <h3 className="mt-4 font-display text-xl font-semibold text-plum-900">
-              Envoyez-moi un message
-            </h3>
-            <p className="mt-1.5 text-sm leading-relaxed text-plum-600">
-              Ce formulaire ouvre votre messagerie avec votre demande
-              pré-remplie, prête à être envoyée.
-            </p>
-
-            <form onSubmit={handleSubmit} className="mt-6 space-y-4">
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <div className="space-y-1.5">
-                  <label
-                    htmlFor="name"
-                    className="text-sm font-medium text-plum-800"
-                  >
-                    Nom
-                  </label>
-                  <Input
-                    id="name"
-                    name="name"
-                    autoComplete="name"
-                    required
-                    value={form.name}
-                    onChange={handleChange("name")}
-                    placeholder="Votre nom"
-                    className="h-11 rounded-lg"
-                  />
-                </div>
-                <div className="space-y-1.5">
-                  <label
-                    htmlFor="phone"
-                    className="text-sm font-medium text-plum-800"
-                  >
-                    Téléphone{" "}
-                    <span className="font-normal text-plum-400">
-                      (facultatif)
-                    </span>
-                  </label>
-                  <Input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    autoComplete="tel"
-                    value={form.phone}
-                    onChange={handleChange("phone")}
-                    placeholder="06 00 00 00 00"
-                    className="h-11 rounded-lg"
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-1.5">
-                <label
-                  htmlFor="email"
-                  className="text-sm font-medium text-plum-800"
-                >
-                  Email
-                </label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  value={form.email}
-                  onChange={handleChange("email")}
-                  placeholder="vous@exemple.fr"
-                  className="h-11 rounded-lg"
-                />
-              </div>
-
-              <div className="space-y-1.5">
-                <label
-                  htmlFor="message"
-                  className="text-sm font-medium text-plum-800"
-                >
-                  Message
-                </label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  required
-                  value={form.message}
-                  onChange={handleChange("message")}
-                  placeholder="Parlez-moi de votre chien et de votre demande..."
-                  className="min-h-32 rounded-lg"
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={status === "loading" || status === "success"}
-                className={cn(
-                  buttonVariants({ variant: "default" }),
-                  "btn-shine h-12 w-full gap-2 rounded-full bg-plum-900 text-base text-cream hover:bg-plum-800 disabled:opacity-60",
-                )}
+            {status === "success" ? (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.96 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                className="flex flex-col items-center justify-center gap-6 py-12 text-center"
               >
-                {status === "loading" ? "Envoi en cours…" : "Envoyer le message"}
-                {status !== "loading" && <Send className="size-4" strokeWidth={1.75} />}
-              </button>
+                <div className="relative flex size-20 items-center justify-center">
+                  <span className="absolute inset-0 rounded-full bg-peach-100/50" />
+                  <span className="absolute inset-3 rounded-full bg-peach-100" />
+                  <CheckCircle2 className="relative size-9 text-peach-600" strokeWidth={1.5} />
+                </div>
 
-              {status === "success" && (
-                <p className="flex items-center gap-2 text-sm font-medium text-plum-700">
-                  <CheckCircle2 className="size-4 text-rose-500" strokeWidth={1.75} />
-                  Message envoyé ! Je vous réponds dès que possible.
+                <div className="space-y-2">
+                  <h3 className="font-display text-2xl font-semibold text-plum-900">
+                    Message envoyé&nbsp;!
+                  </h3>
+                  <p className="text-base leading-relaxed text-plum-600">
+                    Merci pour votre message.<br />
+                    Je vous réponds dès que possible.
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-3 text-plum-300">
+                  <span className="h-px w-12 bg-plum-200" />
+                  <PawPrint className="size-3.5" strokeWidth={1.5} />
+                  <span className="h-px w-12 bg-plum-200" />
+                </div>
+
+                <button
+                  onClick={() => setStatus("idle")}
+                  className="text-sm text-plum-400 underline-offset-4 transition-colors hover:text-plum-700 hover:underline"
+                >
+                  Envoyer un autre message
+                </button>
+              </motion.div>
+            ) : (
+              <>
+                <span className="flex size-12 items-center justify-center rounded-full bg-peach-100 text-peach-700">
+                  <PawPrint className="size-5" strokeWidth={1.75} />
+                </span>
+                <h3 className="mt-4 font-display text-xl font-semibold text-plum-900">
+                  Envoyez-moi un message
+                </h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-plum-600">
+                  Ce formulaire ouvre votre messagerie avec votre demande
+                  pré-remplie, prête à être envoyée.
                 </p>
-              )}
-              {status === "error" && (
-                <p className="flex items-center gap-2 text-sm font-medium text-rose-600">
-                  <CheckCircle2 className="size-4" strokeWidth={1.75} />
-                  Une erreur s&apos;est produite. Réessayez ou écrivez-moi directement.
-                </p>
-              )}
-            </form>
+
+                <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    <div className="space-y-1.5">
+                      <label
+                        htmlFor="name"
+                        className="text-sm font-medium text-plum-800"
+                      >
+                        Nom
+                      </label>
+                      <Input
+                        id="name"
+                        name="name"
+                        autoComplete="name"
+                        required
+                        value={form.name}
+                        onChange={handleChange("name")}
+                        placeholder="Votre nom"
+                        className="h-11 rounded-lg"
+                      />
+                    </div>
+                    <div className="space-y-1.5">
+                      <label
+                        htmlFor="phone"
+                        className="text-sm font-medium text-plum-800"
+                      >
+                        Téléphone{" "}
+                        <span className="font-normal text-plum-400">
+                          (facultatif)
+                        </span>
+                      </label>
+                      <Input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        autoComplete="tel"
+                        value={form.phone}
+                        onChange={handleChange("phone")}
+                        placeholder="06 00 00 00 00"
+                        className="h-11 rounded-lg"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <label
+                      htmlFor="email"
+                      className="text-sm font-medium text-plum-800"
+                    >
+                      Email
+                    </label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      autoComplete="email"
+                      required
+                      value={form.email}
+                      onChange={handleChange("email")}
+                      placeholder="vous@exemple.fr"
+                      className="h-11 rounded-lg"
+                    />
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <label
+                      htmlFor="message"
+                      className="text-sm font-medium text-plum-800"
+                    >
+                      Message
+                    </label>
+                    <Textarea
+                      id="message"
+                      name="message"
+                      required
+                      value={form.message}
+                      onChange={handleChange("message")}
+                      placeholder="Parlez-moi de votre chien et de votre demande..."
+                      className="min-h-32 rounded-lg"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={status === "loading"}
+                    className={cn(
+                      buttonVariants({ variant: "default" }),
+                      "btn-shine h-12 w-full gap-2 rounded-full bg-plum-900 text-base text-cream hover:bg-plum-800 disabled:opacity-60",
+                    )}
+                  >
+                    {status === "loading" ? "Envoi en cours…" : "Envoyer le message"}
+                    {status !== "loading" && <Send className="size-4" strokeWidth={1.75} />}
+                  </button>
+
+                  {status === "error" && (
+                    <p className="flex items-center gap-2 text-sm font-medium text-rose-600">
+                      <CheckCircle2 className="size-4" strokeWidth={1.75} />
+                      Une erreur s&apos;est produite. Réessayez ou écrivez-moi directement.
+                    </p>
+                  )}
+                </form>
+              </>
+            )}
           </Card>
         </motion.div>
       </div>
