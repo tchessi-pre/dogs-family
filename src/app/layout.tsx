@@ -3,6 +3,7 @@ import { Corinthia, Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 
 import { PageLoader } from "@/components/layout/PageLoader";
+import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { BRAND } from "@/lib/data";
 
 const corinthia = Corinthia({
@@ -52,7 +53,7 @@ export const metadata: Metadata = {
         url: "/logo.jpg",
         width: 1200,
         height: 1200,
-        alt: "Dog's Family - Éducatrice canine à Châteauneuf-les-Martigues",
+        alt: "Logo Dog's Family - Éducatrice canine",
       },
     ],
   },
@@ -71,6 +72,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-screen bg-cream font-sans text-plum-900 antialiased">
         <PageLoader />
+        <WhatsAppButton />
         {children}
       </body>
     </html>

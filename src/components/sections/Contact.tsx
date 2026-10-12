@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, PawPrint, Send, CheckCircle2 } from "lucide-react";
+import { MapPin, Phone, Mail, PawPrint, MessageCircle, CheckCircle2 } from "lucide-react";
 
 import { BRAND } from "@/lib/data";
 import { cn } from "@/lib/utils";
@@ -45,7 +45,9 @@ type FormState = {
   message: string;
 };
 
-type Status = "idle" | "loading" | "success" | "error";
+const WA_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "";
+
+type Status = "idle" | "success";
 
 const INITIAL_STATE: FormState = { name: "", email: "", phone: "", message: "" };
 
@@ -59,21 +61,25 @@ export function Contact() {
     };
   }
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setStatus("loading");
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      if (!res.ok) throw new Error("send failed");
-      setStatus("success");
-      setForm(INITIAL_STATE);
-    } catch {
-      setStatus("error");
-    }
+    const lines = [
+      `🐾 Message depuis le site Dog's Family`,
+      ``,
+      `Nom : ${form.name}`,
+      `Email : ${form.email}`,
+      form.phone ? `Téléphone : ${form.phone}` : null,
+      ``,
+      `Message :`,
+      form.message,
+    ]
+      .filter((l) => l !== null)
+      .join("\n");
+
+    const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(lines)}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+    setStatus("success");
+    setForm(INITIAL_STATE);
   }
 
   return (
@@ -202,8 +208,8 @@ export function Contact() {
                   Envoyez-moi un message
                 </h3>
                 <p className="mt-1.5 text-sm leading-relaxed text-plum-600">
-                  Ce formulaire ouvre votre messagerie avec votre demande
-                  pré-remplie, prête à être envoyée.
+                  Remplissez le formulaire&nbsp;: WhatsApp s&apos;ouvrira avec
+                  votre message pré-rempli, prêt à être envoyé.
                 </p>
 
                 <form onSubmit={handleSubmit} className="mt-6 space-y-4">
@@ -289,22 +295,14 @@ export function Contact() {
 
                   <button
                     type="submit"
-                    disabled={status === "loading"}
                     className={cn(
                       buttonVariants({ variant: "default" }),
-                      "btn-shine h-12 w-full gap-2 rounded-full bg-plum-900 text-base text-cream hover:bg-plum-800 disabled:opacity-60",
+                      "btn-shine h-12 w-full gap-2 rounded-full bg-[#25D366] text-base text-white hover:bg-[#1ebe5d]",
                     )}
                   >
-                    {status === "loading" ? "Envoi en cours…" : "Envoyer le message"}
-                    {status !== "loading" && <Send className="size-4" strokeWidth={1.75} />}
+                    Envoyer via WhatsApp
+                    <MessageCircle className="size-4" strokeWidth={1.75} />
                   </button>
-
-                  {status === "error" && (
-                    <p className="flex items-center gap-2 text-sm font-medium text-rose-600">
-                      <CheckCircle2 className="size-4" strokeWidth={1.75} />
-                      Une erreur s&apos;est produite. Réessayez ou écrivez-moi directement.
-                    </p>
-                  )}
                 </form>
               </>
             )}
