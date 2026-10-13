@@ -1,14 +1,14 @@
 import { MessageCircle } from "lucide-react";
 
 import { BRAND } from "@/lib/data";
+import { env } from "@/lib/env";
 
 const message = encodeURIComponent(
   "Bonjour, je souhaite avoir des informations sur vos services d'éducation canine."
 );
 
 export function WhatsAppButton() {
-  const waNumber = process.env.WHATSAPP_NUMBER;
-  const baseHref = waNumber ? `https://wa.me/${waNumber}` : BRAND.whatsappHref;
+  const baseHref = env.whatsappNumber ? `https://wa.me/${env.whatsappNumber}` : BRAND.whatsappHref;
 
   return (
     <a

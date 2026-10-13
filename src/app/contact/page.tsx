@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { PageHero } from "@/components/sections/PageHero";
 import { Contact } from "@/components/sections/Contact";
 import { BRAND } from "@/lib/data";
+import { env } from "@/lib/env";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -31,7 +32,7 @@ export default function ContactPage() {
           description="Une question, une envie de premier échange ? Écrivez-moi ou appelez-moi, je vous réponds avec plaisir."
           image={{ src: "/contact-bg2.jpeg", alt: "Chien attentif regardant son humain, complicité et confiance" }}
         />
-        <Contact whatsappHref={process.env.WHATSAPP_NUMBER ? `https://wa.me/${process.env.WHATSAPP_NUMBER}` : undefined} />
+        <Contact whatsappHref={env.whatsappNumber ? `https://wa.me/${env.whatsappNumber}` : undefined} />
       </main>
       <Footer />
     </>

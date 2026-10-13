@@ -6,6 +6,7 @@ import { AvisHero } from "@/components/sections/AvisHero";
 import { TestimonialCard } from "@/components/sections/TestimonialCard";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { TESTIMONIALS, GOOGLE_REVIEWS_META, BRAND } from "@/lib/data";
+import { env } from "@/lib/env";
 import { GoogleMapsLink } from "@/components/ui/google-maps-link";
 import { JsonLd } from "@/components/seo/JsonLd";
 
@@ -58,7 +59,7 @@ export default function AvisPage() {
       <JsonLd data={reviewsSchema} />
       <Navbar />
       <main>
-        <AvisHero googleMapsUrl={process.env.GOOGLE_MAPS_URL} />
+        <AvisHero googleMapsUrl={env.googleMapsUrl} />
 
         <section className="bg-plum-100 py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -84,7 +85,7 @@ export default function AvisPage() {
 
             <div className="mt-16 flex justify-center">
               <GoogleMapsLink
-                href={process.env.GOOGLE_MAPS_URL ?? "#"}
+                href={env.googleMapsUrl}
                 aria-label="Voir tous les avis sur Google Maps"
                 className="inline-flex items-center gap-2 rounded-full bg-plum-900 px-6 py-3 font-display text-sm font-semibold text-cream shadow-md shadow-plum-900/10 transition-colors hover:bg-plum-800 sm:text-base"
               >

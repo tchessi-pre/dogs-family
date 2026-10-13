@@ -9,6 +9,7 @@ import { Testimonials } from "@/components/sections/Testimonials";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { BRAND, GOOGLE_REVIEWS_META } from "@/lib/data";
+import { env } from "@/lib/env";
 
 export const metadata: Metadata = {
   title: "Dog's Family | Éducatrice canine à Châteauneuf-les-Martigues",
@@ -77,7 +78,7 @@ export default function Home() {
         <Hero />
         <Services />
         <About />
-        <Testimonials googleMapsUrl={process.env.GOOGLE_MAPS_URL} />
+        <Testimonials googleMapsUrl={env.googleMapsUrl} />
         <CtaBanner />
       </main>
       <Footer />
