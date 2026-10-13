@@ -31,7 +31,7 @@ export default function ContactPage() {
           description="Une question, une envie de premier échange ? Écrivez-moi ou appelez-moi, je vous réponds avec plaisir."
           image={{ src: "/contact-bg2.jpeg", alt: "Chien attentif regardant son humain, complicité et confiance" }}
         />
-        <Contact />
+        <Contact whatsappHref={process.env.WHATSAPP_NUMBER ? `https://wa.me/${process.env.WHATSAPP_NUMBER}` : undefined} />
       </main>
       <Footer />
     </>

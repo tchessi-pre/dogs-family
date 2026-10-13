@@ -8,7 +8,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { GoogleMapsLink } from "@/components/ui/google-maps-link";
 import { PageHero } from "@/components/sections/PageHero";
 
-export function AvisHero() {
+export function AvisHero({ googleMapsUrl = "#" }: { googleMapsUrl?: string }) {
   return (
     <PageHero
       eyebrow="Avis clients · Google"
@@ -42,6 +42,7 @@ export function AvisHero() {
         </div>
 
         <GoogleMapsLink
+          href={googleMapsUrl}
           className={cn(
             buttonVariants({ variant: "ghost" }),
             "gap-2 rounded-full border border-cream/20 text-cream/80 hover:border-cream/40 hover:bg-cream/10 hover:text-cream",

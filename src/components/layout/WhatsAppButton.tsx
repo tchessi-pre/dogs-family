@@ -7,9 +7,12 @@ const message = encodeURIComponent(
 );
 
 export function WhatsAppButton() {
+  const waNumber = process.env.WHATSAPP_NUMBER;
+  const baseHref = waNumber ? `https://wa.me/${waNumber}` : BRAND.whatsappHref;
+
   return (
     <a
-      href={`${BRAND.whatsappHref}?text=${message}`}
+      href={`${baseHref}?text=${message}`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contacter sur WhatsApp"

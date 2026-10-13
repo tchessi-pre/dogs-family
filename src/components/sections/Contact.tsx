@@ -50,7 +50,7 @@ type Status = "idle" | "success";
 
 const INITIAL_STATE: FormState = { name: "", email: "", phone: "", message: "" };
 
-export function Contact() {
+export function Contact({ whatsappHref = BRAND.whatsappHref }: { whatsappHref?: string }) {
   const [form, setForm] = useState<FormState>(INITIAL_STATE);
   const [status, setStatus] = useState<Status>("idle");
 
@@ -75,7 +75,7 @@ export function Contact() {
       .filter((l) => l !== null)
       .join("\n");
 
-    const url = `${BRAND.whatsappHref}?text=${encodeURIComponent(lines)}`;
+    const url = `${whatsappHref}?text=${encodeURIComponent(lines)}`;
     window.open(url, "_blank", "noopener,noreferrer");
     setStatus("success");
     setForm(INITIAL_STATE);

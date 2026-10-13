@@ -77,7 +77,7 @@ export default function Home() {
         <Hero />
         <Services />
         <About />
-        <Testimonials />
+        <Testimonials googleMapsUrl={process.env.GOOGLE_MAPS_URL} />
         <CtaBanner />
       </main>
       <Footer />

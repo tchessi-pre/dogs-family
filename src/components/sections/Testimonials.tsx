@@ -18,7 +18,7 @@ function rotate<T>(items: T[], by: number): T[] {
   return [...items.slice(shift), ...items.slice(0, shift)];
 }
 
-export function Testimonials() {
+export function Testimonials({ googleMapsUrl = "#" }: { googleMapsUrl?: string }) {
   const [order, setOrder] = useState(TESTIMONIALS);
   const [paused, setPaused] = useState(false);
 
@@ -201,6 +201,7 @@ export function Testimonials() {
             Tous les témoignages
           </a>
           <GoogleMapsLink
+            href={googleMapsUrl}
             className={cn(
               buttonVariants({ variant: "ghost" }),
               "gap-2 rounded-full text-plum-500 hover:text-plum-900",
