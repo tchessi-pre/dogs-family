@@ -75,11 +75,11 @@ export function PageLoader() {
         <span
           aria-hidden="true"
           className="absolute inset-0 animate-spin rounded-full border-[3px] border-plum-900/10 border-t-plum-400 motion-reduce:animate-none"
-          style={{ animationDuration: "1.1s" }}
+          style={{ animationDuration: "1.14s" }}
         />
         <span
           aria-hidden="true"
-          className="flex size-[calc(100%-18px)] items-center justify-center overflow-hidden rounded-full border-2 border-plum-400 bg-white shadow-md motion-reduce:animate-none"
+          className="flex size-[calc(100%-30px)] items-center justify-center overflow-hidden rounded-full  bg-white shadow-md motion-reduce:animate-none"
           style={{ animation: "loader-pulse 1.6s ease-in-out infinite" }}
         >
           <Image

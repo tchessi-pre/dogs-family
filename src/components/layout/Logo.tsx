@@ -50,7 +50,7 @@ export function Logo({
         <span
           className={cn(
             "font-sans text-[0.65rem] font-medium uppercase tracking-widest",
-            isDark ? "text-peach-300/80" : "text-plum-600/70",
+            isDark ? "text-peach-300/80" : "text-plum-600",
           )}
         >
           Éducation Canine

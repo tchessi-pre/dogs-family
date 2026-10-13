@@ -57,7 +57,7 @@ export function Testimonials() {
 
         {/* ── Header ───────────────────────────────────────────────── */}
         <div className="mx-auto max-w-2xl text-center">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-rose-500">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-rose-600">
             Avis clients
           </span>
           <h2 className="mt-3 font-display text-3xl font-semibold text-plum-900 sm:text-4xl">
@@ -76,7 +76,7 @@ export function Testimonials() {
               <path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.5-5.2l-6.2-5.2c-2 1.4-4.6 2.4-7.3 2.4-5.2 0-9.6-3.4-11.2-8.1l-6.5 5C9.5 39.6 16.2 44 24 44z" />
               <path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.3-2.3 4.2-4.2 5.6l6.2 5.2C41 35.4 44 30.2 44 24c0-1.3-.1-2.3-.4-3.5z" />
             </svg>
-            <div className="flex gap-0.5" aria-label="Note 5 sur 5">
+            <div className="flex gap-0.5" role="img" aria-label="Note 5 sur 5">
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star key={i} className="size-3.5 fill-peach-300 text-peach-300" strokeWidth={0} />
               ))}
@@ -84,7 +84,7 @@ export function Testimonials() {
             <span className="font-display font-semibold text-plum-900">
               {GOOGLE_REVIEWS_META.rating.toFixed(1)}
             </span>
-            <span className="text-sm text-plum-400">
+            <span className="text-sm text-plum-500">
               · {GOOGLE_REVIEWS_META.total} avis
             </span>
           </div>
@@ -167,20 +167,24 @@ export function Testimonials() {
           </div>
 
           {/* Desktop : dots cliquables */}
-          <div className="mt-8 hidden items-center justify-center gap-1.5 lg:flex">
+          <div className="mt-8 hidden items-center justify-center lg:flex">
             {Array.from({ length: pageCount }).map((_, i) => (
               <button
                 key={i}
                 type="button"
                 aria-label={`Aller aux avis n°${i + 1}`}
                 onClick={() => setOrder(rotate(TESTIMONIALS, i * 3))}
-                className={cn(
-                  "h-1.5 rounded-full transition-all duration-300",
-                  currentPage === i
-                    ? "w-8 bg-plum-900 hover:bg-plum-800"
-                    : "w-1.5 bg-plum-300 hover:bg-plum-400",
-                )}
-              />
+                className="group flex items-center justify-center p-2.5"
+              >
+                <span
+                  className={cn(
+                    "block h-1.5 rounded-full transition-all duration-300",
+                    currentPage === i
+                      ? "w-8 bg-plum-900 group-hover:bg-plum-800"
+                      : "w-1.5 bg-plum-300 group-hover:bg-plum-400",
+                  )}
+                />
+              </button>
             ))}
           </div>
         </div>

@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 const AVATAR_BG: Record<NonNullable<Testimonial["avatarColor"]>, string> = {
   plum: "bg-plum-900 text-cream",
   peach: "bg-peach-400 text-plum-950",
-  rose: "bg-rose-400 text-white",
+  rose: "bg-rose-400 text-plum-900",
   cream: "bg-cream text-plum-900 ring-1 ring-plum-900/10",
   indigo: "bg-indigo-600 text-white",
   moss: "bg-emerald-700 text-white",
@@ -48,14 +48,14 @@ export function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
             {testimonial.author}
           </p>
           {testimonial.dogHint && (
-            <p className="truncate text-xs italic text-plum-400">
+            <p className="truncate text-xs italic text-plum-500">
               {testimonial.dogHint}
             </p>
           )}
         </div>
 
         <div className="flex shrink-0 flex-col items-end gap-1">
-          <div className="flex gap-0.5" aria-label="Note 5 sur 5">
+          <div className="flex gap-0.5" role="img" aria-label="Note 5 sur 5">
             {Array.from({ length: 5 }).map((_, i) => (
               <Star
                 key={i}
@@ -64,7 +64,7 @@ export function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
               />
             ))}
           </div>
-          <span className="text-[0.68rem] text-plum-400">{testimonial.date}</span>
+          <span className="text-[0.68rem] text-plum-500">{testimonial.date}</span>
         </div>
       </div>
     </div>
