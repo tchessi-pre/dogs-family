@@ -45,7 +45,6 @@ type FormState = {
   message: string;
 };
 
-const WA_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "";
 
 type Status = "idle" | "success";
 
@@ -76,7 +75,7 @@ export function Contact() {
       .filter((l) => l !== null)
       .join("\n");
 
-    const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(lines)}`;
+    const url = `${BRAND.whatsappHref}?text=${encodeURIComponent(lines)}`;
     window.open(url, "_blank", "noopener,noreferrer");
     setStatus("success");
     setForm(INITIAL_STATE);

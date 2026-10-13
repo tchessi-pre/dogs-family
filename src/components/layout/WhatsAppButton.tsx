@@ -1,16 +1,15 @@
 import { MessageCircle } from "lucide-react";
 
-const phone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "";
+import { BRAND } from "@/lib/data";
+
 const message = encodeURIComponent(
   "Bonjour, je souhaite avoir des informations sur vos services d'éducation canine."
 );
 
 export function WhatsAppButton() {
-  if (!phone) return null;
-
   return (
     <a
-      href={`https://wa.me/${phone}?text=${message}`}
+      href={`${BRAND.whatsappHref}?text=${message}`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contacter sur WhatsApp"

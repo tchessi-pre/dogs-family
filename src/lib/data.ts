@@ -7,6 +7,7 @@ export const BRAND = {
   siteUrl: "https://www.dogs-family.com",
   phone: "07 78 54 51 37",
   phoneHref: "tel:+33778545137",
+  whatsappHref: "https://wa.me/33778545137",
   email: "dogsfamily13@gmail.com",
   social: {
     facebook: "https://facebook.com/educationcaninedogsfamily/",
